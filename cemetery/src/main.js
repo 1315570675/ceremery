@@ -5,16 +5,19 @@ import App from './App'
 import router from './router'
 import GTemp from './components/template.vue'
 import GPop from './components/PopConcat.vue'
-import './../static/css/swiper.min.css'
-Vue.config.productionTip = false
-
+import GPopInfo from './components/PopInfo.vue'
 import 'swiper/dist/css/swiper.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import './../static/css/reset.css'
+Vue.config.productionTip = false
+
+
 Vue.use(VueAwesomeSwiper)　　
 
 const components = [
   GTemp,
-  GPop
+  GPop,
+  GPopInfo
 ];
 //全局组件注册
 components.map(component => {
