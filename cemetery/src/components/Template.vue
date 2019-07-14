@@ -1,12 +1,12 @@
 <template>
-    <div class="g-temp">
+    <div :class="['g-temp', isHome?'':'g-temp-1']">
         <header>
             <div class="g-header">
               <div class="logo"></div>
               <div class="g-bar">
                 <ul>
                   <li v-for="(item,i) in barList" :key="i">
-                    <a :class="[item.highList.indexOf(currPath)>-1?'click-style':'']" href="item.url">{{item.title}}</a>
+                    <a :class="[item.highList.indexOf(currPath)>-1?'click-style':'']" :href="item.url">{{item.title}}</a>
                   </li>
                 </ul>
               </div>
@@ -14,15 +14,9 @@
         </header>
         <div class="g-swiper">
           <swiper :options="swiperOption">
-          　<swiper-slide>
-            1
-             <!-- <img src="./../../static/img/swiper-1.jpg" alt=""> -->
-            </swiper-slide>
-        　　<swiper-slide>
-          2
-              <!-- <img src="./../../static/img/swiper-2.jpg" alt=""> -->
-            </swiper-slide>
-          　　<div class="swiper-pagination" slot="pagination"></div>
+          　<swiper-slide></swiper-slide>
+        　　<swiper-slide></swiper-slide>
+          　<div class="swiper-pagination" slot="pagination"></div>
           <!-- 　　<div class="swiper-button-prev" slot="button-prev"></div>
           　　<div class="swiper-button-next" slot="button-next"></div> -->
           </swiper>
@@ -43,23 +37,39 @@
             <h1 class="title">客服热线：0571-22223333   24小时热线：1234567891234</h1>
           </div>
         </div>
-         
-         
-          <slot></slot>
-          <footer>
-            <div class="g-footer">
-              <div class="footer-left">
-                <ul>
-                  <li v-for="(item,i) in barList" :key="i">
-                    <a :class="[item.highList.indexOf(currPath)>-1?'click-style':'']" href="item.url">{{item.title}}</a>
-                  </li>
-                </ul>
-                <p>版权所有Copyright @ 2018-2019 安吉龙山网 Anjilongshan.com </p>
-                <p>客服热线：13381581757</p>
+        <slot></slot>
+        <div class="g-concat">
+          <h1>{{isHome?'联系我们':''}}</h1>
+          <div class="concat-con">
+            <div class="con-left">
+              <div class="con-wx">
+                <img src="./../../static/img/471562906034_.pic_hd@2x(1).png" alt="">
               </div>
-              <div class="footer-logo"></div>
+              <div class="con-txt">
+                <p>有意向购墓者，我们能提前为您安排专车上门免费看墓和园区接待工作人员，让您在购墓过程中既省心又省钱！</p>
+                <p>您可添加官方服务号或联系24小时客服咨询最新优惠活动：13381581757</p>   
+              </div>
             </div>
-          </footer>
+            <div class="con-right">
+              <img src="./../../static/img/561561708483_.pic_hd副本@2x.png" alt="">
+            </div>
+          </div>
+        </div>
+        <g-pop-info></g-pop-info>
+        <footer>
+          <div class="g-footer">
+            <div class="footer-left">
+              <ul>
+                <li v-for="(item,i) in barList" :key="i">
+                  <a :class="[item.highList.indexOf(currPath)>-1?'click-style':'']" :href="item.url">{{item.title}}</a>
+                </li>
+              </ul>
+              <p>版权所有Copyright @ 2018-2019 安吉龙山网 Anjilongshan.com </p>
+              <p>客服热线：13381581757</p>
+            </div>
+            <div class="footer-logo"></div>
+          </div>
+        </footer>
     </div>
 </template>
 
@@ -88,7 +98,7 @@ export default {
           {url: '/',title:'首页',highList:['/']},
           {url: '/show',title:'福位展示',highList:['/show']},
           {url: '/service',title:'服务内容',highList:['/service']},
-          {url: '/info',title:'墓地资讯',highList:['/info']},
+          {url: '/news',title:'墓地资讯',highList:['/news']},
           {url: '/byprogress',title:'购墓流程',highList:['/byprogress']},
           {url: '/about',title:'关于我们',highList:['/about']},
         ],
@@ -98,6 +108,7 @@ export default {
     created(){
       this.currPath = this.$route.path;
     },
+    props:['isHome'],
     mounted(){
     },
 }
@@ -170,7 +181,69 @@ header{
   width: 100%;
   min-width: $min-width;
 }
-
+.g-concat{
+  width: $min-width;
+  margin: 59px auto;
+  h1{
+      width: 1333px;
+      font-size: 25px;
+      color: #016835;
+      text-align: center;
+      height: 64px;
+      font-weight: 400;
+      border-bottom: 1px dashed #D7D7D7
+  }
+  .concat-con{
+    width:$min-width;
+    height:530px;
+    margin: 0 auto; 
+    margin-top: 39px;
+  }
+  .con-left{
+    width:376px;
+    height:530px;
+    float: left;
+    border: 1px dashed #d7d7d7;
+    .con-wx{
+      width:190px;
+      height:190px;
+      border:2px solid rgba(1,104,53,1);
+      position: relative;
+      margin: 71px auto 0;
+      img{
+        width: 170px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+    .con-txt{
+      width: 310px;
+      height: 139px;
+      margin: 49px auto;
+      p{
+        color: #555555;
+        font-size: 18px;
+        line-height: 24px;
+        &:nth-last-of-type(1){
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+  .con-right{
+    width:938px;
+    height:530px;
+    float: right;
+    overflow: hidden;
+    img{
+      width: 942px;
+      height: 530px;
+      margin-left: -2px;
+    }
+  }
+}
 footer{
   width: 100%;
   min-width: $min-width;
@@ -272,7 +345,8 @@ footer{
       width: 80px;
       height: 50px;
       line-height: 50px;
-      border-radius: 0 24px 24px 0;
+      border-radius: 0 25px 25px 0;
+      margin-right: -1px;
       float: right;
       text-align: center;
       background-color: #006835;
@@ -323,6 +397,33 @@ input:-moz-placeholder{
 }
 ::-webkit-input-placeholder{
   color: #D7D7D7;  
+}
+
+.g-temp-1{
+  .swiper-container{
+    height: 600px;
+  }
+  .g-swiper{
+    height: 600px;
+  }
+  .g-swiper-pop{
+    height: 600px;
+    .search{
+      margin: 54px auto 0;
+    }
+    .swiper-con{
+      margin: 72px auto 0;
+      
+    }
+    .title{
+        margin-top: 60px;
+    }
+  }
+  .g-concat{
+    h1{
+      height: 0
+    }
+  }
 }
 </style>
 

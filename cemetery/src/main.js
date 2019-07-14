@@ -6,6 +6,7 @@ import router from './router'
 import GTemp from './components/template.vue'
 import GPop from './components/PopConcat.vue'
 import GPopInfo from './components/PopInfo.vue'
+import GPage from './components/paginator.vue'
 import 'swiper/dist/css/swiper.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import './../static/css/reset.css'
@@ -17,6 +18,7 @@ Vue.use(VueAwesomeSwiper)　　
 const components = [
   GTemp,
   GPop,
+  GPage,
   GPopInfo
 ];
 //全局组件注册

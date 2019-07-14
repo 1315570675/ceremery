@@ -6,8 +6,10 @@
         </div>
         <div class="call">
             <div class="call-1">
-                <p>客服热线</p>
-                <p>13381581757</p>
+                <div class="c-1">
+                    <p>客服热线</p>
+                    <p>13381581757</p>
+                </div>
             </div>
         </div>
         <div class="go-top" @click="goTop"></div>
@@ -80,10 +82,19 @@ export default {
             width: 140px;
             height: 100px;
             position: absolute;
-            background-color: #fff;
-            background-color: #D7D7D7;
+            background: url('./../../static/img/摄图网_501226850拷贝.png') no-repeat;
+            background-size: 140px 100px;
             left: -150px;
             display: none;
+            position: relative;
+            .c-1{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,.3);
+                left: 0;
+                top: 0;
+            }
             p{
                 font-size: 14px;
                 color: #fff;

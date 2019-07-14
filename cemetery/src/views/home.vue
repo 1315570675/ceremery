@@ -1,5 +1,5 @@
 <template>
-    <g-temp>
+    <g-temp :isHome='isHome'>
         <slot>
             <g-pop></g-pop>
             <div class="g-con">
@@ -21,8 +21,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="g-service">
-                        <h1></h1>
+                </div>
+                 <div class="g-service">
+                        <h1>服务内容</h1>
                         <div class="ser-con">
                             <div class="ser-item">
                                 <img style="width: 203px;margin: 97px auto 83px" src="./../../static/img/c678bdaccc190e479387c75e721018d6副本@2x.png" alt="">
@@ -38,6 +39,38 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="g-cer">
+                        <h1>墓地资讯</h1>
+                        <div class="cer-con">
+                            <div class="con-left">
+                                <div class="con-left-cover">
+                                    <div class="cover-date">
+                                        <p>2019</p>
+                                        <p>6-24</p>
+                                    </div>
+                                    <div class="cover-title">天星派风水传人付长春</div>
+                                    <div class="cover-dtl">付长春，汉族人，祖籍四川遂宁市安岳县，生于一九七一年。一九八七年拜师...</div>
+                                </div>
+                            </div>
+                            <div class="con-right">
+                                <div class="con-right-item">
+                                    <div class="right-item-title">天星派风水传人付长春</div>
+                                    <div class="right-item-con">付长春，汉族人，祖籍四川遂宁市安岳县，生于一九七一年。一九八七年拜师习艺，至二OO九年期间一直随师在农村民间行丧葬之事...</div>
+                                    <div class="right-item-date">2019-6-24</div>
+                                </div>
+                                <div class="con-right-item">
+                                    <div class="right-item-title">天星派风水传人付长春</div>
+                                    <div class="right-item-con">付长春，汉族人，祖籍四川遂宁市安岳县，生于一九七一年。一九八七年拜师习艺，至二OO九年期间一直随师在农村民间行丧葬之事...</div>
+                                    <div class="right-item-date">2019-6-24</div>
+                                </div>
+                                <div class="con-right-item">
+                                    <div class="right-item-title">天星派风水传人付长春</div>
+                                    <div class="right-item-con">付长春，汉族人，祖籍四川遂宁市安岳县，生于一九七一年。一九八七年拜师习艺，至二OO九年期间一直随师在农村民间行丧葬之事...</div>
+                                    <div class="right-item-date">2019-6-24</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="g-views">
                         <h1>园区风景</h1>
@@ -57,7 +90,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </slot>
     </g-temp>
@@ -69,6 +101,7 @@ export default {
         return {
             typeList:['全部','家系列','花系列','雕塑型','艺术竖立型'],
             typeCurrIndex: 0,
+            isHome: true,
             typeCon:[{
                 title: '壁葬',
                 size: 5,
@@ -159,6 +192,98 @@ export default {
     }
 }
 
+.g-cer{
+    width: 100%;
+    height: 584px;
+    background-color: rgba(0,0,0,.2);
+    overflow: hidden;
+    margin-top: 60px;
+    background: url('./../../static/img/fdjgfjgjsdf4@2x.png') no-repeat center;
+    background-size: cover;
+    h1{
+        font-size: 25px;
+        color: #016835;
+        margin-top: 40px;
+        margin-bottom: 33px;
+        font-weight: 400;
+        min-width: $min-width;
+        text-align: center;
+    }
+    .cer-con{
+        width: $min-width;
+        margin: 0 auto;
+        overflow: hidden;
+        .con-left{
+            float: left;
+            width: 475px;
+            height: 445px;
+            background: url('./../../static/img/WechatIMG96.png') no-repeat;
+            background-size: 475px 445px;
+            position: relative;
+        }
+        .con-left-cover{
+            width: 100%;
+            height: 175px;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(#fff,.58);
+            .cover-date{
+                width: 400px;
+                height: 47px;
+                border-left: 1px solid #016835;
+                margin-top: 20px;
+                margin-left: 31px;
+                font-size: 18px;
+                color: #7F7F7F;
+                overflow: hidden;
+                p{
+                    margin-left: 11px;
+                    margin-top: 4px;
+                }
+            }
+            .cover-title{
+                margin-left: 31px;
+                color: #555555;
+                font-size: 25px;
+                margin-top: 10px;
+            }
+            .cover-dtl{
+                width: 364px;
+                margin-left: 31px;
+                color: #616163;
+                font-size: 18px;
+                margin-top: 8px;
+            }
+        }
+        .con-right{
+            float: left;
+            overflow: hidden;
+            margin-left: 41px;
+            .con-right-item{
+                width: 660px;
+                margin-bottom: 17px;
+                border-bottom: 1px solid rgba(#fff,.37);
+                .right-item-title{
+                    font-size: 25px;
+                    color: #fff;
+                }
+                .right-item-con{
+                    font-size: 18px;
+                    color: #fff;
+                    margin-top: 17px;
+                    line-height: 26px;
+                }
+                .right-item-date{
+                    font-size: 18px;
+                    color: #fff;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
 .g-info{
     width: 100%;
     height: auto;
@@ -205,16 +330,22 @@ export default {
     width: 100%;
     margin: 0 auto;
     h1{
+        width: 1333px;
         font-size: 25px;
         color: #016835;
         text-align: center;
+        height: 64px;
+        font-weight: 400;
+        border-bottom: 1px dashed #D7D7D7;
+        margin: 0 auto;
     }
     .ser-con{
         width: $min-width;
         margin: 0 auto;
+        margin-top: 39px;
         overflow: hidden;
         .ser-item{
-           width:352px;
+            width:352px;
             height:352px;
             background:rgba(245,245,245,1);
             border-radius:20px;
@@ -227,7 +358,7 @@ export default {
                 display: block;
             }
             p{
-                font-size: 40px;
+                font-size: 36px;
                 color: #AAAAAA;
                 text-align: center;
             }
@@ -237,16 +368,19 @@ export default {
 
 .g-views{
     width: $min-width;
-    margin: 59px auto;
+    margin: 59px auto 0;
     h1{
+        width: 1333px;
         font-size: 25px;
-        color: #006835;
+        color: #016835;
         text-align: center;
+        height: 64px;
         font-weight: 400;
-        margin-bottom: 80px;
+        border-bottom: 1px dashed #D7D7D7
     }
     .view-item{
         width: 432px;
+        margin-top: 41px;
         margin-right: 18px;
         float: left;
         &:nth-last-of-type(1){
